@@ -1,0 +1,23 @@
+{% extends 'Reviewsforcafe/base.html' %}
+
+{% block title %}Список відгуків{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Відгуки про кав'ярню</h1>
+    {% if reviews %}
+        <div class="list-group">
+            {% for review in reviews %}
+                <div class="list-group-item list-group-item-action flex-column align-items-start mb-3">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ review.title }}</h5>
+                        <small class="text-muted">{{ review.pub_date|date:"d.m.Y H:i" }}</small>
+                    </div>
+                    <p class="mb-1">{{ review.content }}</p>
+                    <small class="text-muted">Автор: {{ review.author.username }}</small>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="alert alert-info">Поки що немає відгуків. Будьте першими, хто залишить відгук!</p>
+    {% endif %}
+{% endblock %}

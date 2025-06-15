@@ -1,0 +1,12 @@
+{% extends 'Reviewsforcafe/base.html' %}
+
+{% block title %}Додати відгук{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Додати новий відгук</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Опублікувати відгук</button>
+    </form>
+{% endblock %}
